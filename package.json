@@ -1,0 +1,30 @@
+{
+  "name": "highlighter-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "copy-to-clipboard": "^3.3.2",
+    "next": "12.2.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.34.0",
+    "react-icons": "^4.4.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "react-toastify": "^9.0.8"
+  },
+  "devDependencies": {
+    "@types/node": "18.6.5",
+    "@types/react": "18.0.17",
+    "@types/react-dom": "18.0.6",
+    "eslint": "8.21.0",
+    "eslint-config-next": "12.2.4",
+    "sass": "^1.54.3",
+    "typescript": "4.7.4"
+  }
+}
