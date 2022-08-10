@@ -2,6 +2,7 @@ import "../styles/globals.scss";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import Footer from "../components/Footer/Footer";
+import { appWithTranslation } from "next-i18next";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -22,4 +23,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

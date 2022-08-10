@@ -8,8 +8,12 @@ import * as themes from "react-syntax-highlighter/dist/cjs/styles/prism";
 import styles from "../styles/Home.module.scss";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const Home: NextPage = () => {
+  const { t } = useTranslation("index");
+
   const [syntax, setSyntax] = useState("javascript");
   const [theme, setTheme] = useState("dracula");
   const [rawText, setRawText] = useState("");
@@ -38,7 +42,7 @@ const Home: NextPage = () => {
 
     document.execCommand("copy");
 
-    toast.success("Текст скопирован!", {
+    toast.success(t("copyToast"), {
       position: "bottom-center",
       autoClose: 3000,
       hideProgressBar: false,
@@ -56,7 +60,7 @@ const Home: NextPage = () => {
       </Head>
       <main className={styles.wrapper}>
         <div className={styles.wrapper__inputBox}>
-          <label htmlFor="syntax">Язык программирования</label>
+          <label htmlFor="syntax">{t("syntax")}</label>
           <select
             name="syntax"
             value={syntax}
@@ -71,7 +75,7 @@ const Home: NextPage = () => {
             )}
           </select>
 
-          <label htmlFor="theme">Тема</label>
+          <label htmlFor="theme">{t("theme")}</label>
           <select
             name="theme"
             value={theme}
@@ -99,7 +103,7 @@ const Home: NextPage = () => {
                 checked={showLineNumbers}
                 onChange={(e) => setShowLineNumbers(e.target.checked)}
               />{" "}
-              Показать номера строк
+              {t("lineNumbers")}
             </label>
 
             <label htmlFor="codeWarpLines">
@@ -110,7 +114,7 @@ const Home: NextPage = () => {
                 checked={warpLines}
                 onChange={(e) => setWarpLines(e.target.checked)}
               />{" "}
-              Перенос строк
+              {t("warpLines")}
             </label>
           </div>
         </div>
@@ -132,7 +136,7 @@ const Home: NextPage = () => {
             )}
           </div>
           {deferredRawText && (
-            <button onClick={() => handleCopy()}>Скопировать</button>
+            <button onClick={() => handleCopy()}>{t("copyButton")}</button>
           )}
         </div>
       </main>
@@ -140,5 +144,13 @@ const Home: NextPage = () => {
     </>
   );
 };
+
+export async function getStaticProps({ locale }: { locale: string }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["index"])),
+    },
+  };
+}
 
 export default Home;

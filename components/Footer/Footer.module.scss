@@ -2,11 +2,23 @@
 
 .footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   height: 2.5rem;
   background: $text-color;
   color: $main-bg;
+
+  &__languageSwitch {
+    select {
+      background: $text-color;
+      color: $main-bg;
+
+      font-size: 1rem;
+
+      border: none;
+      border-bottom: 1px solid $main-bg;
+    }
+  }
 
   p {
     padding: 0;
