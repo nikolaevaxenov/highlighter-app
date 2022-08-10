@@ -1,0 +1,35 @@
+@import "../../styles/colors.module.scss";
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 2.5rem;
+  background: $text-color;
+  color: $main-bg;
+
+  &__languageSwitch {
+    select {
+      background: $text-color;
+      color: $main-bg;
+
+      font-size: 1rem;
+
+      border: none;
+      border-bottom: 1px solid $main-bg;
+    }
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+  a {
+    transition: color 0.3s;
+
+    &:hover {
+      color: darken($main-bg, 10%);
+    }
+  }
+}
