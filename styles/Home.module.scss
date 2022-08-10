@@ -1,0 +1,146 @@
+@import "./colors.module.scss";
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  height: 100%;
+
+  @media screen and (max-width: 660px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr;
+  }
+
+  button {
+    appearance: button;
+    background-color: $text-color;
+    background-image: none;
+    border: 1px solid $text-color;
+    border-radius: 4px;
+    box-shadow: #fff 4px 4px 0 0, $text-color 4px 4px 0 1px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: ITCAvantGardeStd-Bk, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0 1rem;
+    overflow: visible;
+    padding: 12px 40px;
+    text-align: center;
+    text-transform: none;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    &:focus {
+      text-decoration: none;
+    }
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:active {
+      box-shadow: rgba(0, 0, 0, 0.125) 0 3px 5px inset;
+      outline: 0;
+    }
+
+    &:not([disabled]):active {
+      box-shadow: #fff 2px 2px 0 0, $text-color 2px 2px 0 1px;
+      transform: translate(2px, 2px);
+    }
+
+    @media (min-width: 660px) {
+      & {
+        padding: 12px 50px;
+      }
+    }
+  }
+
+  &__inputBox {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+
+    label {
+      text-align: center;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    select {
+      margin: 0 1rem;
+
+      border: none;
+      border-bottom: 1px solid $text-color;
+
+      text-align: center;
+
+      font-size: 1.3rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    textarea {
+      all: unset;
+
+      border: 1px solid $text-color;
+
+      padding: 0.5rem;
+      margin: 1rem;
+
+      height: 30rem;
+
+      @media screen and (max-width: 660px) {
+        height: 5rem;
+      }
+    }
+  }
+
+  &__checkBoxes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    margin: 1rem;
+
+    @media screen and (max-width: 660px) {
+      margin: 0 1rem;
+    }
+  }
+
+  &__outputBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    padding: 1rem;
+
+    overflow-y: auto;
+
+    @media screen and (max-width: 660px) {
+      padding: 0 1rem;
+      gap: 1rem;
+    }
+  }
+
+  &__highlightedCode {
+    height: 80%;
+    width: 100%;
+
+    pre {
+      height: 100%;
+    }
+
+    @media screen and (max-width: 660px) {
+      height: 70%;
+      width: 100%;
+    }
+  }
+}
